@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e; 
+    color: #ffffff; 
+    line-height: 1.6;
+}
+
+header {
+    background-color: #2d2d3a; 
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+}
+
+header h1 {
+    color: #ff6b6b; 
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #4ecdc4; 
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffe66d; 
+}
+
+main {
+    padding: 20px;
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+.sobre-nos, .missao, .equipe {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #2d2d3a;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.sobre-nos h2, .missao h2, .equipe h2 {
+    color: #ff6b6b; 
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.sobre-nos p, .missao p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.missao ul {
+    list-style: disc; 
+    margin-left: 20px;
+}
+
+.missao li {
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #2d2d3a;
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+    border-top: 1px solid #4ecdc4;
+}
+
+@media (max-width: 768px) {
+    .membros {
+        flex-direction: column; 
+        align-items: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    main {
+        padding: 15px;
+    }
+}

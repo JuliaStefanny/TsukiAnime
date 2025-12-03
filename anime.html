@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TsukiAnime</title>
+    <link rel="stylesheet" href="anime.css">
+    <link rel="shortcut icon" href="./img/tsuki.ico">
+    <style>
+        .btn-favorito {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: gray; /
+        }
+        .btn-favorito.favoritado {
+            color: red; 
+        }
+        .comentarios {
+            margin-top: 10px;
+        }
+        .comentarios textarea {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 5px;
+        }
+        .comentarios button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .comentarios button:hover {
+            background-color: #0056b3;
+        }
+        .lista-comentarios {
+            margin-top: 10px;
+        }
+        .comentario {
+            background-color: #f1f1f1;
+            padding: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .avaliacao {
+            margin-top: 10px;
+        }
+        .estrelas {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .estrela {
+            color: gray;
+        }
+        .estrela.ativa {
+            color: yellow; 
+        }
+        .media-avaliacao {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TsukiAnime</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li> 
+                <li><a href="anime.html">Animes</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="favoritos.html">❤️</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filtro">
+            <h2>Catálogo de Animes</h2>
+            <p>Use os filtros para encontrar seus favoritos:</p>
+            <select id="genero">
+                <option value="">Todos os Gêneros</option>
+                <option value="acao">Ação</option>
+                <option value="aventura">Aventura</option>
+                <option value="fantasia">Fantasia</option>
+            </select>
+            <button onclick="filtrarAnimes()">Filtrar</button> 
+        </section>
+
+        <section class="lista-animes">
+            <div class="grid-animes">
+                <div class="anime-card" data-genero="acao" data-genero="aventura" data-id="naruto">
+                    <img src="img/download.png" alt="Naruto">
+                    <h3>Naruto</h3>
+                    <p>Gênero: Ação, Aventura</p>
+                    <p>Data de Lançamento: 2002</p>
+                    <p>Número de Episódios: 220</p>
+                    <p>Duração dos Episódios: 23 minutos</p>
+                    <p>Uma história de ninjas e amizade.</p>
+                    <button class="btn-favorito" onclick="toggleFavorito('naruto')">❤️</button>
+                    <div class="avaliacao">
+                        <div class="estrelas" data-anime="naruto">
+                            <span class="estrela" data-valor="1">★</span>
+                            <span class="estrela" data-valor="2">★</span>
+                            <span class="estrela" data-valor="3">★</span>
+                            <span class="estrela" data-valor="4">★</span>
+                            <span class="estrela" data-valor="5">★</span>
+                        </div>
+                        <div class="media-avaliacao" id="media-naruto">Avaliação média: 0/5</div>
+                    </div>
+                    <div class="comentarios">
+                        <textarea id="comentario-naruto" placeholder="Deixe seu comentário..."></textarea>
+                        <button onclick="adicionarComentario('naruto')">Comentar</button>
+                        <div class="lista-comentarios" id="lista-comentarios-naruto"></div>
+                    </div>
+                </div>
+
+                <div class="anime-card" data-genero="aventura" data-id="onepiece">
+                    <img src="img/onepiece.png" alt="One Piece">
+                    <h3>One Piece</h3>
+                    <p>Gênero: Aventura, Fantasia</p>
+                    <p>Data de Lançamento: 1999</p>
+                    <p>Número de Episódios: 1000+</p>
+                    <p>Duração dos Episódios: 24 minutos</p>
+                    <p>A jornada de piratas em busca de tesouros.</p>
+                    <button class="btn-favorito" onclick="toggleFavorito('onepiece')">❤️</button>
+                    <div class="avaliacao">
+                        <div class="estrelas" data-anime="onepiece">
+                            <span class="estrela" data-valor="1">★</span>
+                            <span class="estrela" data-valor="2">★</span>
+                            <span class="estrela" data-valor="3">★</span>
+                            <span class="estrela" data-valor="4">★</span>
+                            <span class="estrela" data-valor="5">★</span>
+                        </div>
+                        <div class="media-avaliacao" id="media-onepiece">Avaliação média: 0/5</div>
+                    </div>
+                    <div class="comentarios">
+                        <textarea id="comentario-onepiece" placeholder="Deixe seu comentário..."></textarea>
+                        <button onclick="adicionarComentario('onepiece')">Comentar</button>
+                        <div class="lista-comentarios" id="lista-comentarios-onepiece"></div>
+                    </div>
+                </div>
+                <div class="anime-card" data-genero="acao" data-id="attackontitan">
+                    <img src="img/attack.png" alt="Attack on Titan">
+                    <h3>Attack on Titan</h3>
+                    <p>Gênero: Ação, Drama</p>
+                    <p>Data de Lançamento: 2013</p>
+                    <p>Número de Episódios: 87</p>
+                    <p>Duração dos Episódios: 24 minutos</p>
+                    <p>Luta contra monstros gigantes.</p>
+                    <button class="btn-favorito" onclick="toggleFavorito('attackontitan')">❤️</button>
+                    <div class="avaliacao">
+                        <div class="estrelas" data-anime="attackontitan">
+                            <span class="estrela" data-valor="1">★</span>
+                            <span class="estrela" data-valor="2">★</span>
+                            <span class="estrela" data-valor="3">★</span>
+                            <span class="estrela" data-valor="4">★</span>
+                            <span class="estrela" data-valor="5">★</span>
+                        </div>
+                        <div class="media-avaliacao" id="media-attackontitan">Avaliação média: 0/5</div>
+                    </div>
+                    <div class="comentarios">
+                        <textarea id="comentario-attackontitan" placeholder="Deixe seu comentário..."></textarea>
+                        <button onclick="adicionarComentario('attackontitan')">Comentar</button>
+                        <div class="lista-comentarios" id="lista-comentarios-attackontitan"></div>
+                    </div>
+                </div>
+                <div class="anime-card" data-genero="fantasia" data-id="fullmetalalchemist">
+                    <img src="img/fullmetal.png" alt="Fullmetal Alchemist">
+                    <h3>Fullmetal Alchemist</h3>
+                    <p>Gênero: Fantasia, Ação</p>
+                    <p>Data de Lançamento: 2003</p>
+                    <p>Número de Episódios: 51</p>
+                    <p>Duração dos Episódios: 24 minutos</p>
+                    <p>Alquimistas em uma missão perigosa.</p>
+                    <button class="btn-favorito" onclick="toggleFavorito('fullmetalalchemist')">❤️</button>
+                    <div class="avaliacao">
+                        <div class="estrelas" data-anime="fullmetalalchemist">
+                            <span class="estrela" data-valor="1">★</span>
+                            <span class="estrela" data-valor="2">★</span>
+                            <span class="estrela" data-valor="3">★</span>
+                            <span class="estrela" data-valor="4">★</span>
+                            <span class="estrela" data-valor="5">★</span>
+                        </div>
+                        <div class="media-avaliacao" id="media-fullmetalalchemist">Avaliação média: 0/5</div>
+                    </div>
+                    <div class="comentarios">
+                        <textarea id="comentario-fullmetalalchemist" placeholder="Deixe seu comentário..."></textarea>
+                        <button onclick="adicionarComentario('fullmetalalchemist')">Comentar</button>
+                        <div class="lista-comentarios" id="lista-comentarios-fullmetalalchemist"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Meu Site de Anime. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+<script src="anime.js"></script>
+<script src="favoritar.js"></script>
+</html>

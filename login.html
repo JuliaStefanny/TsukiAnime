@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TsukiAnime</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="shortcut icon" href="./img/tsuki.ico">
+</head>
+<body>
+    <header>
+        <h1>TsukiAnime</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="anime.html">Animes</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="favoritos.html">❤️</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-form">
+            <h2>Faça seu Login</h2>
+            <form id="form-login" action="#" method="post">
+                <label for="usuario">Usuário ou Email:</label>
+                <input type="text" id="usuario" name="usuario" required>
+                
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+                
+                <button type="submit">Entrar</button>
+            </form>
+            <p>Não tem conta? <a href="#">Cadastre-se aqui</a></p>
+            <p>Esqueceu a senha? <a href="#">Recuperar senha</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Meu Site de Anime. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+<script src="login.js"></script>
+</html>
